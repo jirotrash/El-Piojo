@@ -1,0 +1,14 @@
+export { Carreras } from './carreras/carreras.entity';
+export { Conversaciones } from './conversaciones/conversaciones.entity';
+export { DetalleMensajes } from './detalle_mensajes/detalle_mensajes.entity';
+export { DetallePublicaciones } from './detalle_publicaciones/detalle_publicaciones.entity';
+export { DetalleVenta } from './detalle_venta/detalle_venta.entity';
+export { Estados } from './estados/estados.entity';
+export { HistorialCupones } from './historial_cupones/historial_cupones.entity';
+export { HistorialTratos } from './historial_tratos/historial_tratos.entity';
+export { Municipios } from './municipios/municipios.entity';
+export { Pagos } from './pagos/pagos.entity';
+export { Publicaciones } from './publicaciones/publicaciones.entity';
+export { PuntosEntrega } from './puntos_entrega/puntos_entrega.entity';
+export { Roles } from './roles/roles.entity';
+export { Usuarios } from './usuarios/usuarios.entity';
