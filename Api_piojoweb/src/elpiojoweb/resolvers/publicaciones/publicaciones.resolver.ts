@@ -1,9 +1,19 @@
-import { Resolver } from '@nestjs/graphql';
+import { Resolver, Query, Args, Int } from '@nestjs/graphql';
 import { PublicacionesService } from '../../services/publicaciones/publicaciones.service';
+import { PublicacionesType } from '../../dto/publicaciones/publicaciones.type';
 
-@Resolver()
+@Resolver(() => PublicacionesType)
 export class PublicacionesResolver {
-	constructor(private readonly publicacionesService: PublicacionesService) {}
+  constructor(private readonly publicacionesService: PublicacionesService) {}
 
-	// TODO: Añadir Queries y Mutations CRUD
+  @Query(() => [PublicacionesType], { name: 'publicaciones' })
+  findAll() {
+    return this.publicacionesService.findAll();
+  }
+
+  @Query(() => PublicacionesType, { name: 'publicacion' })
+  findOne(@Args('id', { type: () => Int }) id: number) {
+    return this.publicacionesService.findOne(id);
+  }
 }
+

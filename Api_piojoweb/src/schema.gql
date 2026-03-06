@@ -7,8 +7,139 @@ type Elpiojoweb {
   name: String
 }
 
+type CarrerasType {
+  id_carreras: Int!
+  nombre: String!
+  universidad: String!
+}
+
+type ConversacionesType {
+  id_conversaciones: Int!
+  fecha_creacion: String!
+}
+
+type DetalleVentaType {
+  id_detalle_venta: Int!
+  cantidad: Int!
+  subtotal: Float!
+}
+
+type DetalleMensajesType {
+  id_detalle_mensajes: Int!
+  mensaje: String!
+  fecha_envio: String!
+}
+
+type DetallePublicacionesType {
+  id_detalle_publicaciones: Int!
+  url_foto: String!
+  es_portada: Boolean!
+}
+
+type EstadosType {
+  id_estados: Int!
+  nombre: String!
+}
+
+type HistorialCuponesType {
+  id_historial_cupones: Int!
+  monto: Float!
+  fecha_expiracion: String!
+}
+
+type HistorialTratosType {
+  id_historial_tratos: Int!
+  fecha_cierre: String!
+  calificacion: Int
+  comentario: String
+}
+
+type MunicipiosType {
+  id_municipios: Int!
+  nombre: String!
+}
+
+type PagosType {
+  id_pagos: Int!
+  total: Float!
+  total_con_descuento: Float!
+  metodo_pago: String!
+  estado: String!
+  fecha_pago: String!
+  url_comprobante: String
+}
+
+type PublicacionesType {
+  id_publicaciones: Int!
+  titulo: String!
+  descripcion: String
+  categoria: String!
+  talla: String
+  marca: String
+  color: String
+  genero: String!
+  estado_uso: String!
+  precio: Float!
+  disponible: Boolean!
+  fecha_publicacion: String!
+}
+
+type PuntosEntregaType {
+  id_puntos_entrega: Int!
+  nombre: String!
+  latitud: Float!
+  longitud: Float!
+  descripcion: String
+}
+
+type RolesType {
+  id_roles: Int!
+  nombre: String!
+}
+
+type UsuariosType {
+  id_usuarios: Int!
+  nombre: String!
+  apellido_paterno: String!
+  apellido_materno: String
+  email: String!
+  telefono: String
+  matricula: String
+  foto_perfil: String
+  direccion: String
+  fecha_registro: String!
+}
+
 type Query {
   elpiojoweb(id: Int!): Elpiojoweb!
+  carreras: [CarrerasType!]!
+  carrera(id: Int!): CarrerasType!
+  conversaciones: [ConversacionesType!]!
+  conversacion(id: Int!): ConversacionesType!
+  detalleVenta: [DetalleVentaType!]!
+  detalleVentaById(id: Int!): DetalleVentaType!
+  detalleMensajes: [DetalleMensajesType!]!
+  detalleMensaje(id: Int!): DetalleMensajesType!
+  detallePublicaciones: [DetallePublicacionesType!]!
+  detallePublicacion(id: Int!): DetallePublicacionesType!
+  estados: [EstadosType!]!
+  estado(id: Int!): EstadosType!
+  historialCupones: [HistorialCuponesType!]!
+  historialCupon(id: Int!): HistorialCuponesType!
+  historialTratos: [HistorialTratosType!]!
+  historialTrato(id: Int!): HistorialTratosType!
+  municipios: [MunicipiosType!]!
+  municipio(id: Int!): MunicipiosType!
+  pagos: [PagosType!]!
+  pago(id: Int!): PagosType!
+  publicaciones: [PublicacionesType!]!
+  publicacion(id: Int!): PublicacionesType!
+  puntosEntrega: [PuntosEntregaType!]!
+  puntoEntrega(id: Int!): PuntosEntregaType!
+  roles: [RolesType!]!
+  role(id: Int!): RolesType!
+  usuarios: [UsuariosType!]!
+  usuario(id: Int!): UsuariosType!
 }
 
 type Mutation {

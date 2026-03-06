@@ -1,9 +1,19 @@
-import { Resolver } from '@nestjs/graphql';
+import { Resolver, Query, Args, Int } from '@nestjs/graphql';
 import { ConversacionesService } from '../../services/conversaciones/conversaciones.service';
+import { ConversacionesType } from '../../dto/conversaciones/conversaciones.type';
 
-@Resolver()
+@Resolver(() => ConversacionesType)
 export class ConversacionesResolver {
-	constructor(private readonly conversacionesService: ConversacionesService) {}
+  constructor(private readonly conversacionesService: ConversacionesService) {}
 
-	// TODO: Añadir Queries y Mutations CRUD
+  @Query(() => [ConversacionesType], { name: 'conversaciones' })
+  findAll() {
+    return this.conversacionesService.findAll();
+  }
+
+  @Query(() => ConversacionesType, { name: 'conversacion' })
+  findOne(@Args('id', { type: () => Int }) id: number) {
+    return this.conversacionesService.findOne(id);
+  }
 }
+

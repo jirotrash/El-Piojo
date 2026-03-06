@@ -1,9 +1,19 @@
-import { Resolver } from '@nestjs/graphql';
+import { Resolver, Query, Args, Int } from '@nestjs/graphql';
 import { RolesService } from '../../services/roles/roles.service';
+import { RolesType } from '../../dto/roles/roles.type';
 
-@Resolver()
+@Resolver(() => RolesType)
 export class RolesResolver {
-	constructor(private readonly rolesService: RolesService) {}
+  constructor(private readonly rolesService: RolesService) {}
 
-	// TODO: Añadir Queries y Mutations CRUD
+  @Query(() => [RolesType], { name: 'roles' })
+  findAll() {
+    return this.rolesService.findAll();
+  }
+
+  @Query(() => RolesType, { name: 'role' })
+  findOne(@Args('id', { type: () => Int }) id: number) {
+    return this.rolesService.findOne(id);
+  }
 }
+

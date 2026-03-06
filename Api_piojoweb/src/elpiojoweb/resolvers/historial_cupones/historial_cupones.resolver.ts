@@ -1,9 +1,19 @@
-import { Resolver } from '@nestjs/graphql';
+import { Resolver, Query, Args, Int } from '@nestjs/graphql';
 import { HistorialCuponesService } from '../../services/historial_cupones/historial_cupones.service';
+import { HistorialCuponesType } from '../../dto/historial_cupones/historial_cupones.type';
 
-@Resolver()
+@Resolver(() => HistorialCuponesType)
 export class HistorialCuponesResolver {
-	constructor(private readonly historialCuponesService: HistorialCuponesService) {}
+  constructor(private readonly historialCuponesService: HistorialCuponesService) {}
 
-	// TODO: Añadir Queries y Mutations CRUD
+  @Query(() => [HistorialCuponesType], { name: 'historialCupones' })
+  findAll() {
+    return this.historialCuponesService.findAll();
+  }
+
+  @Query(() => HistorialCuponesType, { name: 'historialCupon' })
+  findOne(@Args('id', { type: () => Int }) id: number) {
+    return this.historialCuponesService.findOne(id);
+  }
 }
+

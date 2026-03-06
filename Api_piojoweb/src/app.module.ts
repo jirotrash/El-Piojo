@@ -25,7 +25,7 @@ import { join } from 'path';
       synchronize: true,
       autoLoadEntities: true,
     }),
-    ElpiojowebModule,
+    ElpiojowebModule
 
   ],
   controllers: [AppController],

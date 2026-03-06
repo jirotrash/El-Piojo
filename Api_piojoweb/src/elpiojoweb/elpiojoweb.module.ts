@@ -20,7 +20,6 @@ import {
 
 import { ElpiojowebResolver } from './elpiojoweb.resolver';
 import { ElpiojowebService } from './elpiojoweb.service';
-import { ElpiojowebController } from './elpiojoweb.controller';
 
 // Services
 import { CarrerasService } from './services/carreras/carreras.service';
@@ -73,7 +72,6 @@ import { UsuariosResolver } from './resolvers/usuarios/usuarios.resolver';
       Usuarios,
     ]),
   ],
-  controllers: [ElpiojowebController],
   providers: [
     ElpiojowebResolver,
     ElpiojowebService,
